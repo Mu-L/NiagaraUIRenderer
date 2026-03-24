@@ -46,8 +46,7 @@ int32 SNiagaraUISystemWidget::OnPaint(const FPaintArgs& Args, const FGeometry& A
 
     float A, B, C, D;
     SlateRenderTransform.GetMatrix().GetMatrix(A, B, C, D);
-    const float AdditionalAngle = D < 0.f ? 180.f : 0.f;
-    const float Angle = FMath::RadiansToDegrees(FMath::Atan(C / D)) + AdditionalAngle;
+    const float Angle = FMath::RadiansToDegrees(FMath::Atan2(C, D));
 
     FNiagaraUIRenderProperties RenderProperties = FNiagaraUIRenderProperties(LayoutScale, ParentTopLeft, InWidgetStyle.GetColorAndOpacityTint() * ColorAndOpacityAttribute.Get().GetColor(InWidgetStyle));
 
